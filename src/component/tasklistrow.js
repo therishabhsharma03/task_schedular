@@ -7,7 +7,7 @@ function TaskListRow(props)
     const {_id,task,label,dueDate} = props.obj; //Object destruction
 
     const handleClick = () => {
-        Axios.delete("https://tasks-6s1c.onrender.com/homepage/create-task/delete-task" + _id)
+        Axios.delete("http://localhost:4000/homepage/create-task/delete-task" + _id)
         .then((res)=>{
             if(res.status === 200){
                 alert("Task Completed successfully");
