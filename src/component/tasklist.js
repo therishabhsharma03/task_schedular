@@ -6,7 +6,7 @@ function TaskList() {
     const [arr, setArr] = useState([]);
 
     useEffect(() => {
-        Axios.get("http://localhost:4000/homepage")
+        Axios.get("https://tasks-6s1c.onrender.com/homepage")
             .then((res) => {
                 if (res.status === 200)
                     setArr(res.data)

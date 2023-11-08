@@ -13,7 +13,7 @@ function CreateTask()
 
     const handleSubmit = () =>{
         const data = {task:arr[0] , label: arr[1] , dueDate : arr[2]}
-        Axios.post("http://localhost:4000/homepage/create-task",data)
+        Axios.post("https://tasks-6s1c.onrender.com/homepage/create-task",data)
         .then((res)=>{
             if(res.status===200)
                 alert("Record added Successfully")
