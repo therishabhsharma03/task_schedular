@@ -2,6 +2,7 @@ import {useState} from "react" ;
 import Taskform from './taskform';
 import Axios from "axios";
 import {Link} from "react-router-dom"
+import TaskList from "./tasklist";
 function CreateTask()
 {
     const[arr,setArr] = useState([]);
@@ -44,7 +45,9 @@ function CreateTask()
             <div className="hero--section--img">
                 <img src='../calender.png' alt="This is Profile" width={"150px"}></img>
             </div>
+        <TaskList/>
         </section>
+        
     )
 }
 
