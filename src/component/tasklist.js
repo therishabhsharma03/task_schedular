@@ -1,36 +1,49 @@
-import Axios from "axios";
+import axios from "axios";
 import { useEffect, useState } from "react";
 import TaskListRow from "./tasklistrow";
+import { message } from "antd";
 
 function TaskList() {
     const [arr, setArr] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
-        Axios.get("http://localhost:4000/homepage")
-            .then((res) => {
-                if (res.status === 200)
-                    setArr(res.data)
-                else
-                    Promise.reject();
-            })
-            .catch((err) => alert(err))
-    }, [])
+        // Get user ID from localStorage
+        const user = JSON.parse(localStorage.getItem('user'));
+
+        // Make sure the user ID is available
+        if (user && user.userId) {
+
+            axios.get(`http://localhost:4000/homepage/${user.userId}/tasks`)
+                .then((res) => {
+                    if (res.status === 200) {
+                        setArr(res.data);
+                    } else {
+                        Promise.reject();
+                    }
+                })
+                .catch((err) => alert(err));
+        } else {
+            console.error('User ID not found in localStorage');
+        }
+    }, []);
 
     const ListItems = () => {
-        return arr.map((val, ind) => {  //arr=[{_id,name,email,rollNo},{},{},{},...]
-            return <TaskListRow key={ind} obj={val} />
-        })
-    }
+        return arr.map((val, ind) => {
+            return <TaskListRow key={ind} obj={val} />;
+        });
+    };
+
     return (
         <div>
-            <h1 class="text-center my-2"></h1>
-            <table style={{ margin: "0px auto", maxWidth: "60%" }} class="table table-striped table-bordered table-success">
+            <h1 className="text-center my-2"></h1>
+            <table style={{ margin: "0px auto", maxWidth: "60%" }} className="table table-striped table-bordered table-success">
                 <thead>
                     <tr>
-                        <th class="text-center">Task</th>
-                        <th class="text-center">Description</th>
-                        <th class="text-center">Due Date</th>
-                        <th class="text-center">Action</th>
+                        <th className="text-center">Task</th>
+                        <th className="text-center">Description</th>
+                        <th className="text-center">Due Date</th>
+                        <th className="text-center">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -38,8 +51,7 @@ function TaskList() {
                 </tbody>
             </table>
         </div>
-
-    )
+    );
 }
-export default TaskList;
 
+export default TaskList;

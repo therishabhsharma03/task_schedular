@@ -1,7 +1,9 @@
-import {Link} from "react-router-dom";
+import {Link , useNavigate} from "react-router-dom";
 import{useState, useEffect} from "react";
+import {message } from "antd";
 function Nav()
 {
+    const navigate = useNavigate();
     const[navActive, setNavActive]=useState
     (false); // Nav is not active by default
 
@@ -30,6 +32,12 @@ function Nav()
             closeMenu();
         }
     },[]);
+
+    const logoutHandler = ()=>{
+        localStorage.removeItem("user");
+        message.success("Logout successfull");
+        navigate('/login');
+    }
     return(
         <nav className={`navbar ${navActive? "active":""}`}>
         <div>
@@ -53,6 +61,27 @@ function Nav()
                     to="/"
                     className="navbar--content">Home</Link>
                 </li>
+                <li>
+                    <Link onClick={closeMenu} 
+                    activeClass="navbar--active-content"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    to="/register"
+                    className="navbar--content">Sign-Up</Link>
+                </li>
+                <li>
+                    <Link onClick={closeMenu} 
+                    activeClass="navbar--active-content"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    to="/login"
+                    className="navbar--content">Login</Link>
+                </li>
+                <button className="btn" onClick={logoutHandler}>Logout</button>
                 
             
             </ul>

@@ -1,27 +1,50 @@
 import {useState} from "react" ;
 import Taskform from './taskform';
-import Axios from "axios";
+import axios from "axios";
 import {Link} from "react-router-dom"
 import TaskList from "./tasklist";
+import { message } from "antd";
+import CompletedList from "./CompletedList";
 function CreateTask()
 {
     const[arr,setArr] = useState([]);
-
+    const[loading,setLoading] = useState(false);
     const getState = (childData) =>{
         setArr(childData);
     }
 
-    const handleSubmit = () =>{
-        const data = {task:arr[0] , label: arr[1] , dueDate : arr[2]}
-        Axios.post("http://localhost:4000/homepage/create-task",data)
-        .then((res)=>{
-            if(res.status===200)
-                alert("Record added Successfully")
-            else    
-                Promise.reject();
-        })
-        .catch((err)=>alert(err));
+    const handleSubmit = async () => {
+        try {
+            const data = {
+                task: arr[0],
+                label: arr[1],
+                dueDate: arr[2]
+            };
+
+            const user = JSON.parse(localStorage.getItem('user'));
+            console.log('User data from local storage:', user);
+            if (!user || !user.userId) {
+                console.error('User ID not found in local storage');
+                return;
+            }
+
+            setLoading(true);
+            
+            // Include user ID in the data being sent to the server
+            await axios.post("http://localhost:4000/homepage/add-tasks", { ...data, userid: user.userId });
+            
+            setLoading(false);
+            window.location.reload();
+            message.success("Task Added Successfully");
+        } catch (error) {
+            console.error('Error during task submission:', error);
+            setLoading(false);
+            message.error("Something went wrong");
+        }
     }
+
+        
+    
     return(
         <section id ="heroSection" className="hero--section">
             <div className="hero--section--content--box">
@@ -46,6 +69,7 @@ function CreateTask()
                 <img src='../calender.png' alt="This is Profile" width={"150px"}></img>
             </div>
         <TaskList/>
+        <CompletedList/>
         </section>
         
     )
