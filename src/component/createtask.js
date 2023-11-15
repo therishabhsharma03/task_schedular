@@ -31,10 +31,12 @@ function CreateTask()
             setLoading(true);
             
             // Include user ID in the data being sent to the server
-            await axios.post("http://localhost:4000/homepage/add-tasks", { ...data, userid: user.userId });
+            await axios.post("https://tasks-6s1c.onrender.com/homepage/add-tasks", { ...data, userid: user.userId });
             
             setLoading(false);
-            console.log(data);
+            console.log(data)
+            
+            ;
             // window.location.reload();
             message.success("Task Added Successfully");
         } catch (error) {
