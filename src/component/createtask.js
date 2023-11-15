@@ -34,7 +34,8 @@ function CreateTask()
             await axios.post("http://localhost:4000/homepage/add-tasks", { ...data, userid: user.userId });
             
             setLoading(false);
-            window.location.reload();
+            console.log(data);
+            // window.location.reload();
             message.success("Task Added Successfully");
         } catch (error) {
             console.error('Error during task submission:', error);

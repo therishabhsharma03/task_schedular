@@ -1,10 +1,10 @@
 import Axios from "axios";
 import {Link} from "react-router-dom";
-
+import moment from "moment-timezone";
 function CompletedListRow(props){
 
     const{_id, task,label, dueDate} = props.obj;
-   
+    const dueDateLocal = moment(dueDate).local().format('DD-MM-YYYY HH:mm');
     const handleClick=()=>{
         const user  = JSON.parse(localStorage.getItem('user'));
         const data = {task:task, label:label ,dueDate:dueDate}
@@ -44,7 +44,7 @@ function CompletedListRow(props){
         <tr>
             <td>{task}</td>
             <td>{label}</td>
-            <td>{dueDate}</td>
+            <td>{dueDateLocal}</td>
             <td>
                 <button onClick={handleClick} class="btn btn-success mx-1">Retrieve</button>
                 <button onClick={handleSubmit} class="btn btn-danger mx-1">Delete</button>
