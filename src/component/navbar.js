@@ -2,7 +2,7 @@ import {Link , useNavigate} from "react-router-dom";
 import{useState, useEffect} from "react";
 import {message } from "antd";
 function Nav()
-{    if(localStorage.getItem()!=null){
+{    if(localStorage.getItem(user)!=null){
     document.getElementById("log-out").classList.remove("hid");
 }
 else{
