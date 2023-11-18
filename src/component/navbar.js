@@ -2,7 +2,12 @@ import {Link , useNavigate} from "react-router-dom";
 import{useState, useEffect} from "react";
 import {message } from "antd";
 function Nav()
-{
+{    if(localStorage.getItem()!=null){
+    document.getElementById("log-out").classList.remove("hid");
+}
+else{
+    document.getElementById("log-out").classList.add("hid");
+}
     const navigate = useNavigate();
     const[navActive, setNavActive]=useState
     (false); // Nav is not active by default
@@ -87,7 +92,7 @@ function Nav()
                     to="/login"
                     className="navbar--content">Login</Link>
                 </li>
-                <button className="btn hid" id = "log-out" onClick={logoutHandler}>Logout</button>
+                <button className="btn" id = "log-out" onClick={logoutHandler}>Logout</button>
                 
             
             </ul>
