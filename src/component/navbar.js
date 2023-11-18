@@ -4,14 +4,15 @@ import {message } from "antd";
 
 function Nav()
 {   
-    const storedUser = localStorage.getItem("user");
-    
-    if(storedUser!=null){
-    document.getElementById("log-out").classList.remove("hid");
-}
-else{
-    document.getElementById("log-out").classList.add("hid");
-}
+    document.addEventListener("DOMContentLoaded", function() {
+        const storedUser = localStorage.getItem("user");
+      
+        if (storedUser !== null) {
+          document.getElementById("log-out").classList.add("hid");
+        } else {
+          document.getElementById("log-out").classList.remove("hid");
+        }
+      });
     const navigate = useNavigate();
     const[navActive, setNavActive]=useState
     (false); // Nav is not active by default
