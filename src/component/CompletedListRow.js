@@ -1,6 +1,7 @@
 import Axios from "axios";
 import {Link} from "react-router-dom";
 import moment from "moment-timezone";
+import apiService from "./apiService";
 function CompletedListRow(props){
 
     const{_id, task,label, dueDate} = props.obj;
@@ -8,8 +9,8 @@ function CompletedListRow(props){
     const handleClick=()=>{
         const user  = JSON.parse(localStorage.getItem('user'));
         const data = {task:task, label:label ,dueDate:dueDate}
-        Axios.post("http://localhost:4000/homepage/add-tasks",{...data,userid:user.userId});
-        Axios.delete("http://localhost:4000/completedTaskRoute/delete-task/"+_id)
+        apiService.post("/homepage/add-tasks",{...data,userid:user.userId});
+        apiService.delete("/completedTaskRoute/delete-task/"+_id)
         .then((res)=>{
             if(res.status===200){
                 window.location.reload();
@@ -26,7 +27,7 @@ function CompletedListRow(props){
     
     const handleSubmit=()=>{
         console.log(_id);
-        Axios.delete("http://localhost:4000/completedTaskRoute/delete-task/"+_id)
+        apiService.delete("/completedTaskRoute/delete-task/"+_id)
         .then((res)=>{
             if(res.status===200){
                 window.location.reload();

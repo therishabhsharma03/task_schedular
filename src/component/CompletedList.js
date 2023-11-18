@@ -1,7 +1,7 @@
 import axios from "axios";
 import {useState, useEffect} from "react";
 import CompletedListRow from "./CompletedListRow";
-
+import apiService from "./apiService";
 function CompletedList(){
     const[arr, setArr] = useState([]);
     useEffect(() => {
@@ -11,7 +11,7 @@ function CompletedList(){
         // Make sure the user ID is available
         if (user && user.userId) {
 
-            axios.get(`http://localhost:4000/completedTaskRoute/${user.userId}/tasks`)
+            apiService.get(`/completedTaskRoute/${user.userId}/tasks`)
                 .then((res) => {
                     if (res.status === 200) {
                         setArr(res.data);
