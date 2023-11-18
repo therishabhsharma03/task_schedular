@@ -10,11 +10,11 @@ function TaskListRow(props)
     const handleClick = () => {
         const user = JSON.parse(localStorage.getItem('user'));
         const data = {task:task, label:label ,dueDate:dueDate}
-        Axios.post("https://tasks-6s1c.onrender.com/completedTaskRoute/create-task",{...data, userid: user.userId })
+        Axios.post("http://localhost:4000/completedTaskRoute/create-task",{...data, userid: user.userId })
         .then((res)=>{
             if(res.status===200){
                 console.log("bata ballu");
-                Axios.delete("https://tasks-6s1c.onrender.com/homepage/delete-task/"+_id)
+                Axios.delete("http://localhost:4000/homepage/delete-task/"+_id)
                 .then((res)=>{
                     if(res.status===200){
                         window.location.reload();

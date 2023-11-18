@@ -8,8 +8,8 @@ function CompletedListRow(props){
     const handleClick=()=>{
         const user  = JSON.parse(localStorage.getItem('user'));
         const data = {task:task, label:label ,dueDate:dueDate}
-        Axios.post("https://tasks-6s1c.onrender.com/homepage/add-tasks",{...data,userid:user.userId});
-        Axios.delete("https://tasks-6s1c.onrender.com/completedTaskRoute/delete-task/"+_id)
+        Axios.post("http://localhost:4000/homepage/add-tasks",{...data,userid:user.userId});
+        Axios.delete("http://localhost:4000/completedTaskRoute/delete-task/"+_id)
         .then((res)=>{
             if(res.status===200){
                 window.location.reload();
@@ -26,7 +26,7 @@ function CompletedListRow(props){
     
     const handleSubmit=()=>{
         console.log(_id);
-        Axios.delete("https://tasks-6s1c.onrender.com/completedTaskRoute/delete-task/"+_id)
+        Axios.delete("http://localhost:4000/completedTaskRoute/delete-task/"+_id)
         .then((res)=>{
             if(res.status===200){
                 window.location.reload();

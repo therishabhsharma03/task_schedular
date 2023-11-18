@@ -31,7 +31,7 @@ function CreateTask()
             setLoading(true);
             
             // Include user ID in the data being sent to the server
-            await axios.post("https://tasks-6s1c.onrender.com/homepage/add-tasks", { ...data, userid: user.userId });
+            await axios.post("http://localhost:4000/homepage/add-tasks", { ...data, userid: user.userId });
             
             setLoading(false);
             console.log(data)
@@ -39,6 +39,7 @@ function CreateTask()
             ;
             // window.location.reload();
             message.success("Task Added Successfully");
+           
         } catch (error) {
             console.error('Error during task submission:', error);
             setLoading(false);

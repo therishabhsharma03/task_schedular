@@ -151,7 +151,9 @@ h3{
   line-height: 24px;
 }
 /* Styling of navbar  starts*/
-
+.hid{
+  display: none;
+}
 .navbar{
   display: flex;
   justify-content: space-between;

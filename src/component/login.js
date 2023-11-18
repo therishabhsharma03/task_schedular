@@ -12,7 +12,7 @@ const Login = () => {
 const submitHandler = async (values) => {
     try {
         setLoading(true);
-        const response = await axios.post("https://tasks-6s1c.onrender.com/auth/login", values);
+        const response = await axios.post("http://localhost:4000/auth/login", values);
         const data = response.data;
 
         // Log the entire data object
@@ -20,7 +20,9 @@ const submitHandler = async (values) => {
 
         setLoading(false);
         message.success("login success");
-
+        document.getElementById("log").className="hid"  ;
+        document.getElementById("sig").className="hid"  ;
+        document.getElementById("log-out").classList.remove("hid");
         if (data && data.user) {
             // Log user data before storing it in local storage
             console.log('User data:', data.user);

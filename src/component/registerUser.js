@@ -16,7 +16,7 @@ const Register = ()=>{
     const handleSubmit = () =>{
       const data = {name:arr1[0] , email: arr1[1] , password: arr1[2]}
       console.log(data);
-        Axios.post("https://tasks-6s1c.onrender.com/auth/register",data)
+        Axios.post("http://localhost:4000/auth/register",data)
         .then((res) => {
             if (res.status === 201) {
               alert("Record added Successfully");

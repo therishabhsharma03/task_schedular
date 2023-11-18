@@ -36,6 +36,10 @@ function Nav()
     const logoutHandler = ()=>{
         localStorage.removeItem("user");
         message.success("Logout successfull");
+        document.getElementById("log").classList.remove("hid");
+        document.getElementById("sig").classList.remove("hid");
+        document.getElementById("log-out").classList.add("hid");
+
         navigate('/login');
     }
     return(
@@ -69,11 +73,13 @@ function Nav()
                     offset={-70}
                     duration={500}
                     to="/register"
+                    id="sig"
                     className="navbar--content">Sign-Up</Link>
                 </li>
                 <li>
                     <Link onClick={closeMenu} 
                     activeClass="navbar--active-content"
+                    id="log"
                     spy={true}
                     smooth={true}
                     offset={-70}
@@ -81,7 +87,7 @@ function Nav()
                     to="/login"
                     className="navbar--content">Login</Link>
                 </li>
-                <button className="btn" onClick={logoutHandler}>Logout</button>
+                <button className="btn hid" id = "log-out" onClick={logoutHandler}>Logout</button>
                 
             
             </ul>
