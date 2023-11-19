@@ -9,8 +9,13 @@ function Nav()
       
         if (storedUser !== null) {
           document.getElementById("log-out").classList.add("hid");
-        } else {
-          document.getElementById("log-out").classList.remove("hid");
+          document.getElementById("completed").classList.add("hid");
+          console.log("ye wala chala");
+        } 
+        else {
+            document.getElementById("log-out").classList.remove("hid");
+            document.getElementById("completed").classList.remove("hid");
+            console.log("ye else chala");
         }
       });
     const navigate = useNavigate();
@@ -73,8 +78,20 @@ function Nav()
                     offset={-70}
                     duration={500}
                     to="/"
-                    className="navbar--content">Home</Link>
+                    className="btn btn-outline-primary sp">Home</Link>
                 </li>
+                <li>
+                    <Link onClick={closeMenu} 
+                    activeClass="navbar--active-content"
+                    id = "completed"
+                    spy={true}
+                    smooth={true}
+                    offset={-70}
+                    duration={500}
+                    to="/completed"
+                    className="btn btn-outline-primary sp">Completed Tasks</Link>
+                </li>
+                    
                 <li>
                     <Link onClick={closeMenu} 
                     activeClass="navbar--active-content"
@@ -84,7 +101,7 @@ function Nav()
                     duration={500}
                     to="/register"
                     id="sig"
-                    className="navbar--content">Sign-Up</Link>
+                    className="btn btn-outline-primary sp">Sign-Up</Link>
                 </li>
                 <li>
                     <Link onClick={closeMenu} 
@@ -95,10 +112,10 @@ function Nav()
                     offset={-70}
                     duration={500}
                     to="/login"
-                    className="navbar--content">Login</Link>
+                    className=" btn btn-outline-primary sp">Login</Link>
                 </li>
-                <button className="btn" id = "log-out" onClick={logoutHandler}>Logout</button>
                 
+                    <button className="btn btn-primary sp" id = "log-out" onClick={logoutHandler}>Logout</button>
             
             </ul>
         </div>

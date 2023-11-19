@@ -71,10 +71,10 @@ function CreateTask()
                
             </div>
             <div className="hero--section--img">
-                <img src='../calender.png' alt="This is Profile" width={"150px"}></img>
+            <TaskList/>
             </div>
-        <TaskList/>
-        <CompletedList/>
+      
+        {/* <CompletedList/> */}
         </section>
         
     )

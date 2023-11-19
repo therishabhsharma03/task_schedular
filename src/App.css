@@ -12,9 +12,9 @@ h1,h2,h3,h4,h5,h6,p{
 }
 
 :root{
-  --primary:#175bba;
+  --primary:#8dafff;
   --heading-color:#07085a;
-  --bg-shade:#d9f1fb;
+  --bg-shade:#d8e3ff;
   --github:#e62872;
   --darkblue:#1c1e53;
   --black: #8b8aa1;
@@ -76,6 +76,12 @@ h1,h2,h3,h4,h5,h6,p{
 .btn-github:hover{
   color: var(--github);
   background-color: var(--white);
+}
+.btns-align{
+  display: flex;
+}
+.sp{
+  margin: 5px;
 }
 
 /* Global CSS ends here  */
@@ -197,10 +203,10 @@ h3{
 .hero--section{
   display: grid;
   grid-template-columns: repeat(2,1fr);
-  padding: 133.333px 85.333px 133.333px;
+  padding: 60.333px 40.333px 133.333px;
   align-items: center;
   justify-content: space-between;
-  gap: 32px;
+  gap: 30px;
   background-color: var(--bg-shade);
   height: 100vh;
 }
@@ -238,7 +244,7 @@ h3{
   line-height: 36px;
 }
 .hero--section--img{
-  display: lex;
+  display: 1px;
 }
 .hero--section--img>img{
   width: 60%;
@@ -456,6 +462,46 @@ h3{
   border: 1.333px solid var(--primary);
   background: var(--white);
 }
+table{
+  width: 100%;
+  border-collapse: collapse;
+
+  
+}
+th {
+  
+background-color: #b3c9ff;
+  padding: 10px;
+  padding-left: 100px;
+  padding-right: 100px;
+
+}
+
+
+ td{
+
+  padding: 20px;
+  
+}
+/* Apply background color to odd rows */
+tr:nth-child(odd) {
+  background-color: #ffffffba;
+}
+
+/* Apply a different background color to even rows, or use a different style */
+tr:nth-child(even) {
+  background-color:#fff /* your even row color */;
+}
+
+
+
+
+
+
+
+
+
+
 select {
   -webkit-appearance: none;
   -moz-appearance: none;

@@ -40,11 +40,13 @@ function TaskListRow(props)
             <td>{task}</td>
             <td>{label}</td>
             <td>{dueDateLocal}</td>
-            <td class="d-flex justify-content-center">
-                <button class="btn btn-sm btn-success">
-                    <Link class="text-decoration-none text-light" to={"/edit-task"+ _id}>Modify</Link>
-                </button>
-                <button onClick={handleClick} class="btn btn-sm btn-danger mx-3">Completed</button>
+            <td class="d-flex justify-content-center ">
+                <div className="btns-align">
+
+                <Link class="btn btn-outline-primary sp" to={"/edit-task"+ _id}>Modify</Link>
+                
+                <button onClick={handleClick} class="btn btn-outline-primary sp">Completed</button>
+                </div>
             </td>
         </tr>
     )
