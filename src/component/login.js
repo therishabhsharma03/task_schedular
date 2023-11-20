@@ -3,6 +3,7 @@ import { Form, message } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Spinner from "./spinner";
+import apiService from "./apiService";
 
 const LoginForm = () => {
   const [loading, setLoading] = useState(false);
@@ -11,7 +12,7 @@ const LoginForm = () => {
   const submitHandler = async (values) => {
     try {
       setLoading(true);
-      const response = await axios.post("http://localhost:4000/auth/login", values);
+      const response = await apiService.post("/auth/login", values);
       const data = response.data;
 
       // Log the entire data object
