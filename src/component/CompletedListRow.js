@@ -42,13 +42,16 @@ function CompletedListRow(props){
     }
 
     return(
-        <tr>
+        <tr> 
+            
             <td>{task}</td>
             <td>{label}</td>
             <td>{dueDateLocal}</td>
-            <td>
-                <button onClick={handleClick} class="btn btn-success mx-1">Retrieve</button>
-                <button onClick={handleSubmit} class="btn btn-danger mx-1">Delete</button>
+            <td><div className="btns-align">
+
+                <button onClick={handleClick} class="btn btn-outline-primary sp">Retrieve</button>
+                <button onClick={handleSubmit} class="btn btn-outline-primary sp">Delete</button>
+            </div>
             </td>
         </tr>
 

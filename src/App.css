@@ -11,6 +11,7 @@ h1,h2,h3,h4,h5,h6,p{
   margin: 0;
 }
 
+
 :root{
   --primary:#8dafff;
   --heading-color:#07085a;
@@ -485,7 +486,7 @@ background-color: #b3c9ff;
 }
 /* Apply background color to odd rows */
 tr:nth-child(odd) {
-  background-color: #ffffffba;
+  background-color: #d6dee0ba;
 }
 
 /* Apply a different background color to even rows, or use a different style */

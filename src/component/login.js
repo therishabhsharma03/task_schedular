@@ -1,74 +1,79 @@
 import React, { useState, useEffect } from "react";
-import { Form, Input, message } from "antd";
+import { Form, message } from "antd";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Spinner from "./spinner";
-const Login = () => {
+
+const LoginForm = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  //from submit
 
-
-const submitHandler = async (values) => {
+  const submitHandler = async (values) => {
     try {
-        setLoading(true);
-        const response = await axios.post("http://localhost:4000/auth/login", values);
-        const data = response.data;
+      setLoading(true);
+      const response = await axios.post("http://localhost:4000/auth/login", values);
+      const data = response.data;
 
-        // Log the entire data object
-        console.log('Response data:', data);
+      // Log the entire data object
+      console.log('Login Response data:', data);
 
-        setLoading(false);
-        message.success("login success");
-        document.getElementById("log").className="hid"  ;
-        document.getElementById("sig").className="hid"  ;
-        document.getElementById("log-out").classList.remove("hid");
-        if (data && data.user) {
-            // Log user data before storing it in local storage
-            console.log('User data:', data.user);
+      setLoading(false);
 
-            localStorage.setItem(
-                "user",
-                JSON.stringify({ userId: data.user.userId, username: data.user.username })
-            );
-            navigate("/");
-        } else {
-            console.error('Invalid response format');
-        }
+      if (data && data.user) {
+        // Log user data before storing it in local storage
+        console.log('User data:', data.user);
+
+        localStorage.setItem(
+          "user",
+          JSON.stringify({ userId: data.user.userId, username: data.user.username })
+        );
+        navigate("/");
+        message.success("Login success");
+        window.location.reload();
+      } else {
+        console.error('Invalid response format');
+        message.error("Login failed");
+      }
     } catch (error) {
-        setLoading(false);
-        message.error("something went wrong");
-        console.error('Error during registration:', error);
+      setLoading(false);
+      message.error("Something went wrong");
+      console.error('Error during login:', error);
     }
-};
+  };
 
-  //prevent for login user
+  // Prevent login if user is already logged in
   useEffect(() => {
     if (localStorage.getItem("user")) {
       navigate("/");
     }
   }, [navigate]);
-  return (
-    <>
-      <div className="resgister-page ">
-        {loading && <Spinner />}
-        <Form layout="vertical" onFinish={submitHandler}>
-          <h1>Login Form</h1>
 
-          <Form.Item label="Email" name="email">
-            <Input type="email" />
+  return (
+    <div className="resgister-page">
+      {loading && <Spinner />}
+      <Form layout="vertical" onFinish={submitHandler}>
+        <div style={{ maxWidth: "30%", margin: "250px auto" }} className="container">
+          <h1>Login</h1>
+
+          <Form.Item name="email" rules={[{ required: true, message: 'Please enter your email' }]}>
+            <input type="email" className="contact--input" placeholder="Email" />
           </Form.Item>
-          <Form.Item label="Password" name="password">
-            <Input type="password" />
+
+          <Form.Item name="password" rules={[{ required: true, message: 'Please enter your password' }]}>
+            <input type="password" className="contact--input" placeholder="Password" />
           </Form.Item>
-          <div className="d-flex justify-content-between">
-            <Link to="/register">Not a user ? Cleck Here to regsiter</Link>
-            <button className="btn btn-primary">Login</button>
+
+          <button className="btn btn-primary" style={{ margin: "10px auto" }} type="submit">
+            Login
+          </button>
+
+          <div className="d-flex justify-content-between" style={{ maxWidth: "100%", margin: "0px auto" }}>
+            <Link to="/register">Not a user? Click Here to register</Link>
           </div>
-        </Form>
-      </div>
-    </>
+        </div>
+      </Form>
+    </div>
   );
 };
 
-export default Login;
+export default LoginForm;

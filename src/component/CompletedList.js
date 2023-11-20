@@ -32,11 +32,15 @@ function CompletedList(){
     }
 
     return(
+        <div className="skills--section">
+           
         <table class="table table-bordered table-striped table-success" style={{maxWidth:"60%", margin:"10px auto"}}>
             <thead>
                 <tr>
+                    
                     <th class="text-center">Task</th>
-                    <th class="text-center">Due Date</th>
+                    <th class="text-center">Label</th>
+                    <th class="text-center">Due Date/Time</th>
                     <th class="text-center">Action</th>
                 </tr>
             </thead>
@@ -44,6 +48,7 @@ function CompletedList(){
                 {ListItems()}
             </tbody>
         </table>
+        </div>
     )
 }
 

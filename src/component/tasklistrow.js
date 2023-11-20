@@ -40,7 +40,7 @@ function TaskListRow(props)
             <td>{task}</td>
             <td>{label}</td>
             <td>{dueDateLocal}</td>
-            <td class="d-flex justify-content-center ">
+            <td >
                 <div className="btns-align">
 
                 <Link class="btn btn-outline-primary sp" to={"/edit-task"+ _id}>Modify</Link>
