@@ -2,6 +2,7 @@
 import Axios from "axios";
 import { Link } from "react-router-dom";
 import moment from 'moment-timezone';
+import apiService from "./apiService";
 function TaskListRow(props)
 {
     const {_id,task,label,dueDate} = props.obj; //Object destruction
@@ -10,11 +11,11 @@ function TaskListRow(props)
     const handleClick = () => {
         const user = JSON.parse(localStorage.getItem('user'));
         const data = {task:task, label:label ,dueDate:dueDate}
-        Axios.post("http://localhost:4000/completedTaskRoute/create-task",{...data, userid: user.userId })
+        apiService.post("/completedTaskRoute/create-task",{...data, userid: user.userId })
         .then((res)=>{
             if(res.status===200){
                 console.log("bata ballu");
-                Axios.delete("http://localhost:4000/homepage/delete-task/"+_id)
+                apiService.delete("/homepage/delete-task/"+_id)
                 .then((res)=>{
                     if(res.status===200){
                         window.location.reload();

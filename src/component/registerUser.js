@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 import Axios from "axios";
 
 import Registerform from "./registerform";
+import apiService from "./apiService";
 
 
 const Register = ()=>{
@@ -16,7 +17,7 @@ const Register = ()=>{
     const handleSubmit = () =>{
       const data = {name:arr1[0] , email: arr1[1] , password: arr1[2]}
       console.log(data);
-        Axios.post("http://localhost:4000/auth/register",data)
+        apiService.post("/auth/register",data)
         .then((res) => {
             if (res.status === 201) {
               alert("Record added Successfully");
