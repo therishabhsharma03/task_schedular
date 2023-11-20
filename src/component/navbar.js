@@ -53,7 +53,7 @@ function Nav() {
               <li>
                 <Link
                   onClick={closeMenu}
-                  activeClass="navbar--active-content"
+                  activeClass="navbar--active-content navbar--items"
                   id="tasks"
                   spy={true}
                   smooth={true}
