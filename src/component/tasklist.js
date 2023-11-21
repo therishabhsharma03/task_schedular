@@ -43,7 +43,7 @@ function TaskList() {
                     <tr>
                         <th className="text-center">Task</th>
                         <th className="text-center">Description</th>
-                        <th className="text-center">Due Date</th>
+                        <th className="text-center">Due Date/Time</th>
                         <th className="text-center">Action</th>
                     </tr>
                 </thead>

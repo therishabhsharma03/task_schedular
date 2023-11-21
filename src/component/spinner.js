@@ -1,14 +1,14 @@
-import React from 'react'
+import React from 'react';
+import { HashLoader } from 'react-spinners';
 
 const Spinner = () => {
   return (
-    <>
-    <div className="spinner-grow" role="status">
-  <span className="sr-only">Loading...</span>
-</div>
+    <HashLoader
+      color="#367ed6"
+      size={70}
+      speedMultiplier={1}
+    />
+  );
+};
 
-  </>
-  )
-}
-
-export default Spinner
+export default Spinner;

@@ -6,8 +6,10 @@ import TaskList from "./tasklist";
 import { message } from "antd";
 import CompletedList from "./CompletedList";
 import apiService from "./apiService";
+import Spinner from "./spinner"
 function CreateTask()
-{
+{   
+
     const[arr,setArr] = useState([]);
     const[loading,setLoading] = useState(false);
     const getState = (childData) =>{
@@ -28,7 +30,7 @@ function CreateTask()
                 console.error('User ID not found in local storage');
                 return;
             }
-
+            
             setLoading(true);
             
             // Include user ID in the data being sent to the server
@@ -48,9 +50,9 @@ function CreateTask()
         }
     }
 
-        
     
     return(
+        
         <section id ="heroSection" className="hero--section">
             <div className="hero--section--content--box">
                 <div className="hero--section--content">
@@ -59,7 +61,10 @@ function CreateTask()
                         
                     <form onSubmit={handleSubmit}>
                           <h1>Schedule Your tasks</h1>
+                      
+
                           <Taskform getState={getState} />
+              
                     </form>
 
                     </h1>
@@ -71,7 +76,8 @@ function CreateTask()
                
             </div>
             <div className="hero--section--img">
-            <TaskList/>
+            {loading ? <Spinner /> :  <TaskList/>}
+           
             </div>
       
         {/* <CompletedList/> */}

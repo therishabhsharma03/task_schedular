@@ -52,12 +52,14 @@ const LoginForm = () => {
   return (
     <div className="resgister-page">
       {loading && <Spinner />}
+      <div style={{maxWidth:"40%",margin:"0px auto"}} class="container">
+        
       <Form layout="vertical" onFinish={submitHandler}>
         <div style={{ maxWidth: "30%", margin: "250px auto" }} className="container">
           <h1>Login</h1>
 
           <Form.Item name="email" rules={[{ required: true, message: 'Please enter your email' }]}>
-            <input type="email" className="contact--input" placeholder="Email" />
+            <input type="email"  className="contact--input" placeholder="Email" />
           </Form.Item>
 
           <Form.Item name="password" rules={[{ required: true, message: 'Please enter your password' }]}>
@@ -73,6 +75,7 @@ const LoginForm = () => {
           </div>
         </div>
       </Form>
+      </div>
     </div>
   );
 };

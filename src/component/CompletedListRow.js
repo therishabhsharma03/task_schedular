@@ -2,6 +2,7 @@ import Axios from "axios";
 import {Link} from "react-router-dom";
 import moment from "moment-timezone";
 import apiService from "./apiService";
+import { message } from "antd";
 function CompletedListRow(props){
 
     const{_id, task,label, dueDate} = props.obj;
@@ -31,6 +32,7 @@ function CompletedListRow(props){
         .then((res)=>{
             if(res.status===200){
                 window.location.reload();
+                message.success("Task Deleted Successfully")
             }
             else{
                 Promise.reject();

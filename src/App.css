@@ -626,78 +626,54 @@ input[type="checkbox"] {
 }
 
 @media only screen and (max-width: 1200px) {
-  
   .hero--section {
-    display: flex;
-    flex-direction: column-reverse;
-    padding-bottom: 70px;
+    padding-bottom: 40px; /* Adjust padding for smaller screens */
   }
+
+  .hero--section--content--box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .hero--section--img {
+    margin-top: 20px; /* Adjust margin for smaller screens */
+  }
+
   .hero--section--title,
-  .hero--section-description,
-  .footer--content {
+  .hero--section--description {
     text-align: center;
   }
-  .skills--section--container,
-  .about--section,
-  .portfolio--section--container,
-  .portfolio--container-box,
-  .footer--link--container,
-  .footer--items > ul,
-  .footer--content--container {
-    display: flex;
-    flex-direction: column;
+
+  .btn-primary {
+    width: 100%; /* Make the button full-width */
   }
-  .skills--section,
-  .portfolio--container,
-  .hero--section--content,
-  .hero--section--content--box {
-    align-items: center;
+
+  .register-page {
+    margin: 50px; /* Adjust margin for smaller screens */
   }
-  .portfolio--container-box {
-    gap: 30px;
+  .table {
+    width: 100%; /* Make the table full-width on small screens */
   }
-  .skills--section,
-  .testimonial--section,
-  .contact--section,
-  .footer--container {
-    gap: 20px;
-    padding-top: 70px;
-    padding-bottom: 70px;
+
+  .table th,
+  .table td {
+    padding: 8px; /* Adjust padding for better spacing on small screens */
+    font-size: 14px; /* Adjust font size for better readability on small screens */
   }
-  .about--section {
-    gap: 20px;
-    padding-top: 0;
-    padding-bottom: 0;
+
+  .btns-align {
+    flex-direction: column; /* Stack buttons vertically on small screens */
+    align-items: center; /* Center align buttons */
   }
-  .testimonial--section--card {
-    padding: 25px;
-  }
-  .hero--section--title,
-  .skills--section--heading,
-  .sections--heading {
-    font-size: 35px;
-    line-height: 40px;
-  }
-  .hero--section--content--box {
-    gap: 10px;
-  }
-  .contact--form--container {
-    width: 100%;
-  }
-  .container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .footer--social--icon > ul,
-  .footer--items > ul {
-    padding: 0;
-    align-items: center;
-  }
-  .divider {
-    margin: 20px;
+
+  .btn {
+    width: 100%; /* Make buttons full-width on small screens */
+    margin-bottom: 8px; /* Add margin between buttons for better spacing */
   }
 }
+
 
 /* Hamburger menu  */
 
@@ -777,3 +753,5 @@ input[type="checkbox"] {
 .register-page{
   margin: 200px;
 }
+
+
