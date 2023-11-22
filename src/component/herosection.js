@@ -2,7 +2,7 @@ import React from "react";  // Import React
 import CreateTask from "./createtask";
 import { Link, useNavigate } from "react-router-dom";  // Import useNavigate directly
 import { message } from "antd";
-
+import Features from "./Features"
 export default function Herosection() {
   const navigate = useNavigate();  // Move useNavigate inside the functional component
 
@@ -24,7 +24,7 @@ export default function Herosection() {
     }
   };
 
-  return (
+  return (<>
     <section id="heroSection" className="hero--section">
       <div className="hero--section--content--box">
         <div className="hero--section--content">
@@ -47,5 +47,7 @@ export default function Herosection() {
         <img src='../calender.png' alt="This is Profile" width={"150px"}></img>
       </div>
     </section>
+    <Features />
+    </>
   );
 }

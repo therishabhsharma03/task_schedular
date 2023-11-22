@@ -23,8 +23,7 @@ const Register = () => {
 
     setLoading(true);
 
-    apiService
-      .post("/auth/register", data)
+    apiService.post("/auth/register", data)
       .then((res) => {
         if (res.status === 201) {
           // Registration successful, send OTP to the user
@@ -42,8 +41,7 @@ const Register = () => {
   };
 
   const sendOtp = () => {
-    apiService
-      .post("/auth/send-otp", { email: arr1[1] })
+    apiService.post("/auth/send-otp", { email: arr1[1] })
       .then((res) => {
         setLoading(false);
         if (res.status === 200) {

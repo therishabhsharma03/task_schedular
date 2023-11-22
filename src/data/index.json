@@ -1,0 +1,58 @@
+{
+    "skills":[
+        {
+            "id":1,
+            "src":"./1.png",
+            "title":"Task Reminders",
+            "decription":""
+        },
+        {
+            "id":2,
+            "src":"./2.png",
+            "title":"Priotize Your Tasks",
+            "decription":""
+        },
+        {
+            "id":3,
+            "src":"./3.png",
+            "title":"OTP Authentication",
+            "decription":""
+        },
+        {
+            "id":4,
+            "src":"./4.png",
+            "title":"Calender Integration",
+            "decription":""
+        }
+    ],
+
+
+
+    "portfolio":[
+        {
+            "id":1,
+            "src":"./imgs/aw.jpg",
+            "title":"Durand Cup",
+            "decription":"Lorem ispum dolar sit amer , Syspendise consectrtu elit",
+            "link":"Know more"
+
+           
+        },
+        {
+            "id":2,
+            "src":"./imgs/aww.jpg",
+            "title":"Uber Cup Thomas Cup",
+            "decription":"Lorem ispum dolar sit amer , Syspendise consectrtu elit",
+            "link":"Know more"
+        },
+        {
+            "id":3,
+            "src":"./imgs/awww.jpg",
+            "title":"Corbillon Cup ",
+            "decription":"Lorem ispum dolar sit amer , Syspendise consectrtu elit",
+            "link":"Know more"
+  
+        }
+
+    ]
+}
