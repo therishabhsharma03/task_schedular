@@ -607,7 +607,7 @@ input[type="checkbox"] {
     line-height: 70px;
   }
   .skills--section--container {
-    gap: 16px;
+    gap: 12px;
   }
   .skills--section--card {
     gap: 28px;
